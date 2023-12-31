@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    チーム
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <th>競技</th>
+            <th>種目</th>
+            <th>順位</th>
+            <th>選手</th>
+            <th>記録</th>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{result["sport"]}}</td>
+                    <td>{{result["event"]}}</td>
+                    <td>{{result["rank"]}}</td>
+                    <td>{{result["athletes"]}}</td>
+                    <td>{{result["record"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

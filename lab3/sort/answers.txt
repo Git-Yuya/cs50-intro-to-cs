@@ -1,0 +1,38 @@
+sort1 uses: Bubble Sort
+How do you know?: When the data is in reverse order, the running time of sort1 is slower than other sorts.
+                  When the data is sorted, the running time of sort1 is faster than that of sort3.
+random   5000   0.109s
+         10000  0.458s
+         50000  16.775s
+reversed 5000   0.115s
+         10000  0.504s
+         50000  12.851s
+sorted   5000   0.024s
+         10000  0.496s
+         50000  3.221s
+
+
+sort2 uses: Merge Sort
+How do you know?: When the number of data is large, the running time of sort2 is faster than other sorts.
+random   5000   0.011s
+         10000  0.059s
+         50000  3.397s
+reversed 5000   0.014s
+         10000  0.021s
+         50000  6.085s
+sorted   5000   0.010s
+         10000  0.023s
+         50000  4.286s
+
+
+sort3 uses: Selection Sort
+How do you know?: The running time of sort3 is almost the same regardless of the type of data.
+random   5000   0.034s
+         10000  0.222s
+         50000  9.532s
+reversed 5000   0.036s
+         10000  0.180s
+         50000  9.454s
+sorted   5000   0.040s
+         10000  0.239s
+         50000  8.783s

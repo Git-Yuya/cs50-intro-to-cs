@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    選手選択
+{% endblock %}
+
+{% block main %}
+    <form action="/athlete" method="post">
+        <select name="athlete" id="athlete">
+            <option disabled selected>選手</option>
+            {% for athlete in athletes %}
+                <option>{{athlete}}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-primary" type="submit">決定</button>
+    </form>
+{% endblock %}

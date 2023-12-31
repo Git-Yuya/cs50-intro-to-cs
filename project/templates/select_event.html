@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    種目選択
+{% endblock %}
+
+{% block main %}
+    <form action="/result" method="post">
+        <select name="sport" id="sport" onchange="create_event(this.value)">
+            <option disabled selected>競技</option>
+            <option value="swimming">競泳</option>
+            <option value="diving">飛び込み</option>
+            <option value="water_polo">水球</option>
+            <option value="marathon_swimming">マラソンスイミング</option>
+            <option value="artistic_swimming">アーティスティックスイミング</option>
+        </select>
+
+        <select name="event" id="event" disabled>
+            <option disabled selected>種目</option>
+        </select>
+
+        <button class="btn btn-primary" type="submit">決定</button>
+    </form>
+
+    <script>
+        const event_list =
+              {
+                "swimming": ["男子50m自由形", "男子100m自由形", "男子200m自由形", "男子400m自由形", "男子800m自由形", "男子1500m自由形",
+                             "男子100m背泳ぎ", "男子200m背泳ぎ", "男子100m平泳ぎ", "男子200m平泳ぎ", "男子100mバタフライ", "男子200mバタフライ",
+                             "男子200m個人メドレー", "男子400m個人メドレー", "男子4×100mリレー", "男子4×200mリレー", "男子4×100mメドレーリレー",
+                             "女子50m自由形", "女子100m自由形", "女子200m自由形", "女子400m自由形", "女子800m自由形", "女子1500m自由形",
+                             "女子100m背泳ぎ", "女子200m背泳ぎ", "女子100m平泳ぎ", "女子200m平泳ぎ", "女子100mバタフライ", "女子200mバタフライ",
+                             "女子200m個人メドレー", "女子400m個人メドレー", "女子4×100mリレー", "女子4×200mリレー", "女子4×100mメドレーリレー", "混合4×100mメドレーリレー"
+                            ],
+                "diving": ["男子板飛び込み", "男子高飛び込み", "男子シンクロ板飛び込み", "男子シンクロ高飛び込み",
+                           "女子板飛び込み", "女子高飛び込み", "女子シンクロ板飛び込み", "女子シンクロ高飛び込み"
+                          ],
+                "water_polo": ["男子", "女子"],
+                "marathon_swimming": ["男子10km", "女子10km"],
+                "artistic_swimming": ["女子デュエット", "女子チーム"]
+              };
+
+        function create_event(select_event) {
+
+            let event = document.getElementById("event");
+            event.disabled = false;
+            event.innerHTML = "";
+            let option = document.createElement("option");
+            option.innerHTML = "種目";
+            option.defaultSelected = true;
+            option.disabled = true;
+            event.appendChild(option);
+
+            event_list[select_event].forEach( menu => {
+                let option = document.createElement("option");
+                option.innerHTML = menu;
+                event.appendChild(option);
+            });
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    チーム選択
+{% endblock %}
+
+{% block main %}
+    <form action="/team" method="post">
+        <select name="team" id="team">
+            <option disabled selected>チーム</option>
+            {% for team in teams %}
+                <option>{{team}}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-primary" type="submit">検索</button>
+    </form>
+{% endblock %}

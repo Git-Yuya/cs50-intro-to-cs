@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    得点
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <th>順位</th>
+            <th>チーム</th>
+            <th>競泳</th>
+            <th>飛び込み</th>
+            <th>水球</th>
+            <th>マラソンスイミング</th>
+            <th>アーティスティックスイミング</th>
+            <th>合計</th>
+        </thead>
+        <tbody>
+            {% for score in scores %}
+                <tr>
+                    <td>{{score["rank"]}}</td>
+                    <td>{{score["team"]}}</td>
+                    <td>{{score["競泳"]}}</td>
+                    <td>{{score["飛び込み"]}}</td>
+                    <td>{{score["水球"]}}</td>
+                    <td>{{score["マラソンスイミング"]}}</td>
+                    <td>{{score["アーティスティックスイミング"]}}</td>
+                    <td>{{score["total"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

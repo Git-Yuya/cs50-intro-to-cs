@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    メダル
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <th>順位</th>
+            <th>チーム</th>
+            <th>金</th>
+            <th>銀</th>
+            <th>銅</th>
+            <th>合計</th>
+        </thead>
+        <tbody>
+            {% for medal in medals %}
+                <tr>
+                    <td>{{medal["rank"]}}</td>
+                    <td>{{medal["team"]}}</td>
+                    <td>{{medal["gold"]}}</td>
+                    <td>{{medal["silver"]}}</td>
+                    <td>{{medal["bronze"]}}</td>
+                    <td>{{medal["total"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
